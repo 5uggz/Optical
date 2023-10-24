@@ -28,14 +28,36 @@
             background-color: #555;
             transform: scale(1.1);
         }
+
+        #content-container {
+            width: 100%;
+            background-color: #222;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to My Game Website</h1>
     <p>This is a cool game website with a black background and white text. Click the buttons at the top to navigate to different sections.</p>
 
-    <a href="proxy.html" class="button">Proxy</a>
-    <a href="games.html" class="button">Games</a>
-    <a href="other-services.html" class="button">Other Services</a>
+    <button onclick="loadContent('proxy.html')" class="button">Proxy</button>
+    <button onclick="loadContent('games.html')" class="button">Games</button>
+    <button onclick="loadContent('other-services.html')" class="button">Other Services</button>
+
+    <div id="content-container">
+        <!-- Content will be loaded here dynamically -->
+    </div>
+
+    <script>
+        function loadContent(page) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("content-container").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", page, true);
+            xhttp.send();
+        }
+    </script>
 </body>
 </html>
