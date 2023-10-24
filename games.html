@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
+    <style>
+        body {
+            background-color: black; /* Set the same background color as the main page */
+            color: white; /* Set the same text color as the main page */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <h1>Games Section</h1>
-    <!-- You can add content related to games here -->
+
+    <div class="button-container">
+        
+        <div class="button" onclick="openIframe('another-page.html')">
+            <img src="another-image.jpg" alt="Another Image">
+            <span class="button-text">Another Service</span>
+        </div>
+
+        
+    </div>
+
+    <div id="iframe-container">
+        <iframe id="iframe" src="" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        function openIframe(page) {
+            var iframe = document.getElementById("iframe");
+            iframe.src = page;
+            document.getElementById("iframe-container").style.display = "block";
+        }
+    </script>
 </body>
 </html>
