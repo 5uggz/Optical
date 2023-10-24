@@ -13,6 +13,13 @@
             margin: 0;
         }
 
+        .button-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -32,11 +39,14 @@
 
         #content-container {
             width: 100%;
+            height: 100vh;
             background-color: #222;
-            position: absolute;
-            top: 90px;
-            bottom: 0;
-            overflow-y: auto;
+            overflow: hidden;
+        }
+
+        #content {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -44,24 +54,19 @@
     <h1>Welcome to My Game Website</h1>
     <p>This is a cool game website with a black background and white text. Click the buttons at the top to navigate to different sections.</p>
 
-    <button onclick="loadContent('proxy.html')" class="button">Proxy</button>
-    <button onclick="loadContent('games.html')" class="button">Games</button>
-    <button onclick="loadContent('other-services.html')" class="button">Other Services</button>
+    <div class="button-container">
+        <button onclick="loadContent('proxy.html')" class="button">Proxy</button>
+        <button onclick="loadContent('games.html')" class="button">Games</button>
+        <button onclick="loadContent('other-services.html')" class="button">Other Services</button>
+    </div>
 
     <div id="content-container">
-        <!-- Content will be loaded here dynamically -->
+        <iframe id="content" src="about:blank" frameborder="0"></iframe>
     </div>
 
     <script>
         function loadContent(page) {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("content-container").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", page, true);
-            xhttp.send();
+            document.getElementById("content").src = page;
         }
     </script>
 </body>
