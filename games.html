@@ -19,12 +19,11 @@
 
     <div class="button-container">
         <!-- Subway Surfers-->
-        <div class="button" onclick="openIframe('another-page.html')">
-            <img src="another-image.jpg" alt="Another Image">
-            <span class="button-text">Another Service</span>
+        <div class="button" onclick="openIframe('https://5uggz.github.io/subwaysurfers/')">
+            <img src="https://github.com/5uggz/Optical/blob/main/images/subwaysurfers-1677630205274.jpg?raw=true" alt="Subway Surfers">
+            <span class="button-text">Subway Surfers</span>
         </div>
-
-        
+        <!-- Add more buttons as needed -->
     </div>
 
     <div id="iframe-container">
@@ -32,9 +31,9 @@
     </div>
 
     <script>
-        function openIframe(page) {
+        function openIframe(url) {
             var iframe = document.getElementById("iframe");
-            iframe.src = page;
+            iframe.src = url;
             document.getElementById("iframe-container").style.display = "block";
         }
     </script>
